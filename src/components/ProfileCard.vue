@@ -27,13 +27,13 @@
           highlightClassName="highlight"
           :searchWords="[props.highlight]"
           :autoEscape="true"
-          :textToHighlight="props.data.address"
+          :textToHighlight="`Address: ${props.data.address}`"
         />
         <Highlighter class="detail__item"
           highlightClassName="highlight"
           :searchWords="[props.highlight]"
           :autoEscape="true"
-          :textToHighlight="props.data.country"
+          :textToHighlight="`Country: ${props.data.country}`"
         />
       </div>
       <div class="divider" />
