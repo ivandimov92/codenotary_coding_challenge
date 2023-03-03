@@ -22,7 +22,7 @@
         />
       </div>
       <div class="detail">
-        <div class="detail__item">{{ `Registered: ${props.data.registered}` }}</div>
+        <div class="detail__item">{{ `Registered: ${locateDateString}` }}</div>
         <Highlighter class="detail__item"
           highlightClassName="highlight"
           :searchWords="[props.highlight]"
@@ -43,13 +43,19 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 import Highlighter from 'vue-highlight-words'
 
 const props = defineProps({
   data: Object,
   onSelect: Function,
   highlight: String
+})
+
+const locateDateString = computed(() => {
+  const registeredDate = props.data.registered
+  const dateString = registeredDate.slice(0, registeredDate.replace(" ", "").lastIndexOf("-"))
+  return new Date(dateString).toLocaleString()
 })
 </script>
 
